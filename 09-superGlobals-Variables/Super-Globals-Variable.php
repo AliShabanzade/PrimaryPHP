@@ -1,6 +1,6 @@
 <?php
 $num = 1353;
-$name = ["ali" , "shabanzade"];
+$name = ["ali", "shabanzade"];
 echo "<pre>";
 //super GLOBALS is pridefine array by php 
 // var_dump($GLOBALS);
@@ -9,9 +9,10 @@ echo "<hr>";
 $x = 10;
 $y = 20;
 // GLOBALS variable can call evry where on the script
-function sum(){
-   $GLOBALS ["FAMILY"] = 'SHABANZADE';
-   $GLOBALS['z']= $GLOBALS['x'] + $GLOBALS['y'];
+function sum()
+{
+   $GLOBALS["FAMILY"] = 'SHABANZADE';
+   $GLOBALS['z'] = $GLOBALS['x'] + $GLOBALS['y'];
 }
 
 // to access to $z should call sum() one time
@@ -42,8 +43,3 @@ echo "<hr>";
 echo "SCRIPT_NAME : " . $_SERVER['SCRIPT_NAME'];
 echo "<hr>";
 echo "QUERY_STRING : " . $_SERVER['QUERY_STRING'];
-
-
-
-
-

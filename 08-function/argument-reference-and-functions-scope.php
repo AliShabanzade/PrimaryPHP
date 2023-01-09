@@ -2,8 +2,9 @@
 
 $num = 5;
 //call by value
-function test_Call_By_value($num = null){
-   return $num *= $num;
+function test_Call_By_value($num = null)
+{
+    return $num *= $num;
 }
 echo $num;
 echo "<br>";
@@ -13,9 +14,9 @@ echo $num;
 echo "<hr>";
 
 // call by reference
-function test_Call_By_Reference(&$num){
+function test_Call_By_Reference(&$num)
+{
     return $num *= $num;
-
 }
 
 echo $num;
@@ -27,11 +28,11 @@ echo "<hr>";
 
 
 // local variable can call just in functions
-function make_Local_variable(){
-   //scope of $massage is just in this function
-    $massage = "hello world"; 
+function make_Local_variable()
+{
+    //scope of $massage is just in this function
+    $massage = "hello world";
     echo $massage;
-
 }
 echo make_Local_variable();
 echo "<br>";
@@ -40,7 +41,8 @@ echo "<br>";
 
 //global variable 
 $mass = "hello world";
-function call_External_Variable_In_Function(){
+function call_External_Variable_In_Function()
+{
     //to call external variable $mass in function we use global/GLOBAL befor $mass
     global $mass;
     echo $mass;
@@ -54,7 +56,8 @@ echo "<hr>";
 
 
 //functions are dynamic call
-function call($name = null){
+function call($name = null)
+{
     return "hello $name <br>";
 }
 //a function can assign to a variable  
