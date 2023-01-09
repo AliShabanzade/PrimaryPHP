@@ -26,7 +26,7 @@ echo $x;
 echo "<hr><hr><hr><hr>";
 
 
-//Most important $_SERVER arrays
+//some important $_SERVER arrays
 echo  "PHP_SELF : " . $_SERVER['PHP_SELF'];
 echo "<hr>";
 echo "SERVER_NAME : " . $_SERVER["SERVER_NAME"];
