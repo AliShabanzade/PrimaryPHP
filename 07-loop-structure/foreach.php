@@ -36,7 +36,7 @@ $users = array(
     ]
 );
 
-// key => value baraye chape arrayeha va maghadire daroone anha ast 
+// key => value baraye chape kilidha va maghadire daroone anha ast 
 foreach($users as $key => $value){
 
     echo " $key :  {$value["role"]} email : {$value["email"]} age : {$value["age"]} <br> ";
@@ -44,9 +44,9 @@ foreach($users as $key => $value){
 }
 
 echo "<hr>";
-
+// return value of array without key 
 foreach($users as  $user){// user is a name for each index of $users array in one loop
    
-    echo " {$user["role"]}  <br> ";
+    echo " {$user["role"]} {$user["email"]} {$user["age"]}  <br> ";
     
 }

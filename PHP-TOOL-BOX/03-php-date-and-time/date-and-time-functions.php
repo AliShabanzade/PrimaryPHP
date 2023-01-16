@@ -41,3 +41,7 @@ echo "<br>";
 //strtotime can recive string
 $strtotime2 = strtotime("tomorrow");
 echo $strtotime2;
+
+
+// Return the current Unix timestamp with microseconds
+echo microtime();
