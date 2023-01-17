@@ -1,4 +1,6 @@
 <?php
+
+// change gregorian calender to jalali calender
 function date_To_Jalali(string $date){
     $array= explode(" " , $date);
     list($year,$month,$day)=explode("-" , $array[0]);

@@ -23,6 +23,8 @@ $k = true;
 echo gettype($k) . "<br>";
 echo "<hr>";
 
+
+//this function check that variable is empty or not
 function is_empty($value){
     if(empty($value)){
         var_dump($value);
@@ -34,6 +36,8 @@ function is_empty($value){
     echo "<br>";
 }
 
+
+//call is empty and pass varius value
 is_empty($a);
 is_empty($b);
 is_empty($c);
@@ -49,6 +53,8 @@ is_empty($k);
 echo "<hr>";
 
 
+
+//is_set function check that the variable have been set or not 
 function is_set($value){
     if(isset($value)){
         var_dump($value);
@@ -60,6 +66,8 @@ function is_set($value){
     }echo "<br>";
 }
 
+
+//call is_set function to check variable 
 is_set($a);
 is_set($b);
 is_set($c);
