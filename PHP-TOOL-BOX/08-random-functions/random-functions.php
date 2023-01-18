@@ -12,6 +12,7 @@ echo mt_rand(100,100000000). "<br>";
 echo mt_rand(). "<br>";
 
 // Seed the random number generator seed the random with mktime() function
+//  NOTICE :  srand () function effect on other random functions
 // echo srand(mktime(22 , 37, 43, 07, 15,2022)). "<br>";
 
 
