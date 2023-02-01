@@ -4,7 +4,7 @@ include_once '01-connection.php';
 
 
 //Defining a query and assigning it to a variable
-$sql = " create table people1 (
+$sql = " create table people (
     id int primary key auto_increment,
     fullName varchar(256),
     age int unsigned,
