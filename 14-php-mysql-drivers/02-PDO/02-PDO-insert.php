@@ -16,7 +16,7 @@ include_once '01-PDO-connection.php';
 // echoLine("Last insert ID : " , $db->lastInsertId());
 
 
-// use PDO insert structure in a loop
+//* use PDO insert structure in a loop
 // $sql3 = "INSERT INTO people(fullname , age , sex) VALUE (? , ? , ?)";
 // $stmt3 = $db->prepare($sql3);
 // *list of users to add into database
