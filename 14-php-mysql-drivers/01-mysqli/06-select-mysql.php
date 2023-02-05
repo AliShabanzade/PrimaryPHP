@@ -3,10 +3,10 @@ include_once '01-connection.php';
 include_once 'styles.php';
 echo "<hr>";
 
-//set a query in a variable
+//*set a query in a variable
 // $sql= "select * from people where id>10";
 
-//save a query in a variable
+//*save a query in a variable
 // mysqli_result Represents the result set obtained from a query against the database
 // $result = $mysqli-> query($sql);
 
@@ -18,14 +18,14 @@ echo "<hr>";
 
 
 
-// Fetch all rows and return the result-set as an associative array:
+// *Fetch all rows and return the result-set as an associative array:
 // print_r($result -> fetch_all());
 
 
 
 
-// mysqli_result::fetch_assoc -- mysqli_fetch_assoc — 
-// Fetch the next row of a result set as an associative array
+//* mysqli_result::fetch_assoc -- mysqli_fetch_assoc — 
+// *Fetch the next row of a result set as an associative array
 // print_r($result -> fetch_assoc());
 // print_r($result -> fetch_assoc());
 // print_r($result -> fetch_assoc());
@@ -43,7 +43,7 @@ echo "<hr>";
 // echo "<hr>";
 
 
-//The order of the columns is based on the query we specified for fetch_assoc()
+//*The order of the columns is based on the query we specified for fetch_assoc()
 // $sql2 = "select fullname , id from people where id < 10";
 // $result2 = $mysqli -> query($sql2);
  
@@ -57,8 +57,8 @@ echo "<hr>";
 
 
 
-//mysqli_result::fetch_array -- mysqli_fetch_array —
-//  Fetch the next row of a result set as an associative, a numeric array, or both
+//*mysqli_result::fetch_array -- mysqli_fetch_array —
+// * Fetch the next row of a result set as an associative, a numeric array, or both
 // while($row1 = $result2->fetch_array()){
 
 //     print_r($row1);
@@ -112,7 +112,7 @@ echo "<hr>";
 $sql6 = "select * from people";
 $stmt4 = $mysqli->prepare($sql6);
 $stmt4->execute();
-// mysqli::store_result -- mysqli_store_result — Transfers a result set from the last query
+//* mysqli::store_result -- mysqli_store_result — Transfers a result set from the last query
 $stmt4->store_result();
 echo "Total rows is : " .$stmt4->affected_rows;
 
