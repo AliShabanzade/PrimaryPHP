@@ -102,3 +102,11 @@ echo array_rand($studentArray);
 echo "<hr>";
 echo array_rand($arr1);
 
+echo "<hr>";
+
+//pick random value from a array
+$pickValue = array_rand($studentArray);
+//echo $studentArray with $pickValue key
+echo ($studentArray[$pickValue]);
+
+
