@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Test</title>
+
+
+</head>
+<body style="line-height:50px; text-align: center;">
+    <input type="text" id="ajax-input">
+    <button id="ajax-send">send</button>
+    <div id="ajax-result">Result is Here...</div>
+    
+
+   
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $(document).ready(function(){
+            //save content send button into btn var
+            var btn = $('#ajax-send');
+            // save input field content in input var
+            var input = $('#ajax-input');
+            // save ajax response into resultTag var
+            var resultTag = $('#ajax-result');
+            // boolean : if true means ckick in send button
+            btn.click(function(){
+                // AJAX is updating parts of a web page, without reloading the whole page 
+               $.ajax({
+                // url is the server that ajax send
+                url : 'ajax-handler.php',
+                // method can be post or get
+                method : 'Post',
+                // the date is content of ajax sending
+                data : {data:input.val()},
+                success:function(response){
+                    // resultTag.html can save server response
+                    resultTag.html(response);
+                },
+                error: function(response){
+                    resultTag.html(response);
+                } 
+
+
+               });
+            });
+        } );
+
+    </script>
+
+
+</body>
+</html>

@@ -69,14 +69,19 @@ span.close {
 
     </div>
     <button id="btn1">open Modal</button>
+
+
+    <!-- jquery CDN  -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.js" integrity="sha512-nO7wgHUoWPYGCNriyGzcFwPSF+bPDOR+NvtOYy2wMcWkrnCNPKBcFEkU80XIN14UVja0Gdnff9EmydyLlOL7mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-        // setTimeout(function(){alert('Ali Shabanzade');} , 2000);   
+        // setTimeout(function(){alert('Ali Shabanzade');} , 2000); 
+          
         $("#btn1").click(function(e){
             $('.modal-overlay').fadeIn(500);
         });
 
         $(window).keyup(function(e){
+            // if event is pushing enter key(13)
           if(e.keyCode == 13){
             $('.modal-overlay').fadeIn(500);
           }
@@ -86,6 +91,7 @@ span.close {
        
         
         $(".modal-overlay .close").click(function(e){
+            // close modal if click on close key
             $('.modal-overlay').fadeOut(500);
         });
 
@@ -93,6 +99,7 @@ span.close {
         $(window).keyup(function(e){
             // alert(e.keyCode);
             //  alert(String.fromCharCode(e.keyCode));
+            // 27 is ESC key
             if(e.keyCode == 27){
                 $('.modal-overlay').fadeOut(500);
             }
@@ -101,6 +108,8 @@ span.close {
         });
         
     </script>
+
+
     
 </body>
 </html>
