@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Sentences</title>
+
+    <style>
+        div#rSentence {
+    font-size: large;
+    font-family: auto;
+    background: aqua;
+    padding: 30px;
+    border-radius: 10px;
+}
+    </style>
+</head>
+<body style ="text-align: center; padding: 50px;">
+    <h1>Random Sentences</h1>
+    <div id="rSentence">
+        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ<br>علی شعبان زاده
+
+    </div>
+
+ 
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    
+    <script>
+        setInterval(function(){
+           $.ajax({
+                url : "ajax-sentenceGenerator.php",
+                success : function(response){
+                    $("#rSentence").html(response);
+                }
+
+           });
+        },5000);
+    </script>
+</body>
+</html>
