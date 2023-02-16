@@ -1,0 +1,26 @@
+{
+    "name": "shabanzade/testlib",
+    "description": "this is a test library",
+    "type": "library",
+    "require": {
+        "hekmatinasser/verta": "^2.1"
+    },
+    "require-dev": {
+        "hekmatinasser/verta": "^2.1",
+		"fakerphp/faker": "^1.21.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Shabanzade\\Testlib\\": "src/"
+        }
+    },
+   
+    "authors": [
+        {
+            "name": "Ali Shabanzade",
+            "email": "shabanzade.ali@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
