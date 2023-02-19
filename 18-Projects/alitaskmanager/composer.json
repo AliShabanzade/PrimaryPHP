@@ -1,0 +1,21 @@
+{
+    "name": "ali-sh/alitaskmanager",
+    "description": "A Simpel Todo List Project(With Ajax Php and mysql)",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "AliSh\\Alitaskmanager\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ali Shabanzade",
+            "email": "shabanzade.ali@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "hekmatinasser/verta": "^2.1"
+    }
+}
