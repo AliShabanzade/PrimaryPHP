@@ -1,7 +1,3 @@
-<?php
-echo implode('-',$tasks) ."<br>". rand(1000,10000);
-?>
-
 <!DOCTYPE html>
 <html lang="en" >
 <head>
@@ -33,6 +29,9 @@ echo implode('-',$tasks) ."<br>". rand(1000,10000);
           <li> <i class="fa fa-envelope"></i>Messages</li>
         </ul>
       </div>
+      <div>
+          <input type="text" placeholder="Add New Folder"/>
+        </div>
     </div>
     <div class="view">
       <div class="viewHeader">

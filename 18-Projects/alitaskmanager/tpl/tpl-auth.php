@@ -9,7 +9,7 @@
 <body>
 <!-- partial:index.partial.html -->
 <div class="page">
-  Auth Form Here....
+Auth form here....
 </div>
 <!-- partial -->
   <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="assets/js/script.js"></script>
