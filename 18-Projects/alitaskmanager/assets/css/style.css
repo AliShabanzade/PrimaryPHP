@@ -1,5 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Dosis:300|Lato:300,400,600,700|Roboto+Condensed:300,700|Open+Sans+Condensed:300,600|Open+Sans:400,300,600,700|Maven+Pro:400,700);
 @import url("https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
+
+
 html {
  background-color:#54b9cd;
 }
@@ -10,6 +12,18 @@ body {
   font-family: "Open Sans";
   font-size: 14px;
   font-smoothing: antialiased;
+}
+
+input {
+  padding: 3px 10px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+
+.btn {
+  padding: 3px 10px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
 }
 
 .page {
@@ -120,6 +134,21 @@ body {
 .main .nav .menu ul {
   padding-left: 0px;
 }
+
+
+.main .nav .menu ul li a {
+  text-decoration: none;
+  color: #0c7388;
+}
+
+i.fa.fa-trash-o {
+  color: #d54f4f;
+  float: right;
+  font-weight: 200;
+}
+
+
+
 .main .nav .menu ul li {
   cursor: pointer;
   list-style: none;
@@ -143,6 +172,8 @@ body {
   font-size: 1.4em;
   margin-right: 10px;
 }
+
+
 .main .view {
   position: relative;
   margin-left: 200px;
@@ -267,3 +298,4 @@ body {
 .clear {
   clear: both;
 }
+
