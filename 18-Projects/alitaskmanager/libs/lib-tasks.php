@@ -1,6 +1,8 @@
 <?php
 
 // folder function
+
+
 function deleteFolder($folder_id){
     global $pdo;
     $sql="delete from folders where id = $folder_id";
@@ -11,7 +13,14 @@ function deleteFolder($folder_id){
 }
 
 
-function addFolders($data){
+function addFolders($folder_name){
+    // var_dump($folder_name);
+    global $pdo;
+    $current_user_id=getCurrentUserId();
+    $sql = "INSERT INTO folders(name,user_id) VALUE(:folder_name ,:user_id);";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([":folder_name"=>$folder_name , ":user_id"=>$current_user_id]);
+    return $stmt->rowCount();
 
 
 }
@@ -19,7 +28,7 @@ function addFolders($data){
 
 
 function getFolders(){
-    $current_user_id=getCurrentUserId();
+   $current_user_id=getCurrentUserId(); 
     //make $pdo glogbal
     global $pdo;
     $sql="select * from folders where user_id=$current_user_id";
@@ -43,6 +52,9 @@ function addTasks(){
 function getTasks(){
     return 1;
 }
+
+
+
 
 
 

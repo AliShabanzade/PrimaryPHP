@@ -1,6 +1,6 @@
 <?php
 
-//  use define To avoid hard coding
+// The define() function defines a constant  use define To avoid hard coding
 define('FILE_NAME', "ajaxInput.txt");
 
 

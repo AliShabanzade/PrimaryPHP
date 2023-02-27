@@ -1,11 +1,11 @@
 <?php
 
 include "constants.php";
-include 'config.php';
+include BASE_PATH .'bootstrap/config.php';
 
-include 'vendor/autoload.php';
+include BASE_PATH . "vendor/autoload.php";
 
-include 'libs/helpers.php';
+include   BASE_PATH .'libs/helpers.php';
 
 
 
@@ -31,8 +31,8 @@ try{
 
 
 
-include 'libs/lib-tasks.php';
-include 'libs/libs-auth.php';
+include BASE_PATH .'libs/lib-tasks.php';
+include BASE_PATH . 'libs/libs-auth.php';
 
 
 

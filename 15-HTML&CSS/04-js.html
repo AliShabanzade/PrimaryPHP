@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js Sampel</title>
+    
+   <style>
+
+     body{
+        background: url(https://img.freepik.com/free-vector/colorful-background-concept_23-2148452453.jpg?w=996&t=st=1676185631~exp=1676186231~hmac=0e9decf82904fde6f7c1b9fee05035bcdc6385e38ab53602e25d212957d488b3);
+        background-size: cover;
+     }
+
+
+
+     .modal-overlay {
+        display: none;
+        /* background: rgba(0,0,0,0.7); */
+        background-image: linear-gradient( 109.6deg, rgba(156,252,248,1) 11.2%, rgba(110,123,251,1) 91.1% );
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+
+    .modal {
+    background: #fff;
+    margin: 50px auto;
+    width: 60%;
+    direction: rtl;
+    text-align: right;
+    padding: 20px;
+    font-family: cursive;
+    position: relative;
+    border-radius: 10px;
+}
+
+
+span.close {
+    position: absolute;
+    left: 22px;
+    cursor: pointer;
+    color: red;
+}
+
+
+
+
+
+
+   </style>
+    
+</head>
+<body>
+    <div class="modal-overlay">
+        <div class="modal">
+            <span class="close">X</span>
+            <h2>عنوان</h2>
+            <div class="content">
+            
+              علی شعبان زاده یک برنامه نویس خوب است
+            </div>
+
+        </div>
+
+    </div>
+    <button id="btn1">open Modal</button>
+
+
+    <!-- jquery CDN  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.js" integrity="sha512-nO7wgHUoWPYGCNriyGzcFwPSF+bPDOR+NvtOYy2wMcWkrnCNPKBcFEkU80XIN14UVja0Gdnff9EmydyLlOL7mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        // setTimeout(function(){alert('Ali Shabanzade');} , 2000); 
+          
+        $("#btn1").click(function(e){
+            $('.modal-overlay').fadeIn(500);
+        });
+
+        $(window).keyup(function(e){
+            // if event is pushing enter key(13)
+          if(e.keyCode == 13){
+            $('.modal-overlay').fadeIn(500);
+          }
+        });
+
+
+       
+        
+        $(".modal-overlay .close").click(function(e){
+            // close modal if click on close key
+            $('.modal-overlay').fadeOut(500);
+        });
+
+
+        $(window).keyup(function(e){
+            // alert(e.keyCode);
+            //  alert(String.fromCharCode(e.keyCode));
+            // 27 is ESC key
+            if(e.keyCode == 27){
+                $('.modal-overlay').fadeOut(500);
+            }
+           
+            
+        });
+        
+    </script>
+
+
+    
+</body>
+</html>

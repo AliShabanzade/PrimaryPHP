@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title><?= SITE_TITLE ?></title>
-  <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/style.css">
+  <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/style.css">
 
 </head>
 
@@ -25,20 +25,20 @@
         </div>
         <div class="menu">
           <div class="title">Folders</div>
-          <ul>
+          <ul class="folder-list">
             <?php foreach ($folders as $folder) : ?>
               <li>
                 <a href="?folder_id=<?= $folder->id ?>"><i class="fa fa-folder"></i><?php echo $folder->name ?></a>
                 <a href="?delete_folder=<?= $folder->id ?>"><i class="fa fa-trash-o"></i></a>
-                
+
               </li>
             <?php endforeach; ?>
             <li class="active"><i class="fa fa-folder-open"></i>Current Folder</li>
           </ul>
         </div>
         <div>
-          <input type="text" id="newFolderInput" style="width:65%; margin-left:3%" placeholder="Add New Folder" />
-          <button id="newFolderBtn" class="btn">+</button>
+          <input type="text" id="addFolderInput" style="width:65%; margin-left:3%" placeholder="Add New Folder" />
+          <button id="addFolderBtn" class="btn clickable">+</button>
         </div>
       </div>
       <div class="view">
@@ -84,6 +84,31 @@
   <!-- partial -->
   <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
   <script src="assets/js/script.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      $('#addFolderBtn').click(function(e) {
+        var input = $("input#addFolderInput");
+        $.ajax({
+          url: "process/ajaxHandler.php",
+          method: "post",
+          data: {
+            action: "addFolder",
+            folderName: input.val()
+          },
+          success: function(response) {
+            if(response == '1'){
+              // 
+              $('<li> <a href="?folder_id=<?= $folder->id ?>"><i class="fa fa-folder"></i><?php echo $folder->name ?></a><a href="?delete_folder=<?= $folder->id ?>"><i class="fa fa-trash-o"></i></a></li>').appendTo('ul.folder-list');
+            } else {
+              alert(response);
+            }
+          }
+        });
+      });
+
+    });
+  </script>
 
 </body>
 
