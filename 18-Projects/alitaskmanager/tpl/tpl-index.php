@@ -28,7 +28,7 @@
           <ul class="folder-list">
             <?php foreach ($folders as $folder) : ?>
               <li>
-                <a href="?folder_id=<?= $folder->id ?>"><i class="fa fa-folder"></i><?php echo $folder->name ?></a>
+                <a href="?folder_id=<?= $folder->id ?>"><i class="fa fa-folder"></i><?= $folder->name ?></a>
                 <a href="?delete_folder=<?= $folder->id ?>"><i class="fa fa-trash-o"></i></a>
 
               </li>
@@ -86,21 +86,19 @@
   <script src="assets/js/script.js"></script>
 
   <script>
-    $(document).ready(function() {
-      $('#addFolderBtn').click(function(e) {
-        var input = $("input#addFolderInput");
+    $(document).ready(function(){
+      $('#addFolderBtn').click(function(e){
+        var input = $('input#addFolderInput');
         $.ajax({
-          url: "process/ajaxHandler.php",
+          url : "process/ajaxHandler.php",
           method: "post",
-          data: {
-            action: "addFolder",
-            folderName: input.val()
-          },
+          data : {action: "addFolder",folderName: input.val()},
           success: function(response) {
-            if(response == '1'){
-              // 
-              $('<li> <a href="?folder_id=<?= $folder->id ?>"><i class="fa fa-folder"></i><?php echo $folder->name ?></a><a href="?delete_folder=<?= $folder->id ?>"><i class="fa fa-trash-o"></i></a></li>').appendTo('ul.folder-list');
-            } else {
+
+           
+            if (response == "1") {
+              $('<li> <a href="?folder_id=<?= $folder->id ?>"><i class="fa fa-folder"></i>'+input.val()+'</a> <a href="?delete_folder=<?= $folder->id ?>"><i class="fa fa-trash-o"></i></a> </li>').appendTo("ul.folder-list");
+            }else{
               alert(response);
             }
           }

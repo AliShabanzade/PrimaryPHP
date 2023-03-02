@@ -1,4 +1,14 @@
-<?php
+<?php  defined('BASE_PATH') OR die("Permision Denied");
+
+
+/*
+?alternative for above code
+if(!defined('BASE_PATH')){
+    echo "Permision Denied";
+    die();
+}
+
+*/
 
 // folder function
 
@@ -17,7 +27,7 @@ function addFolders($folder_name){
     // var_dump($folder_name);
     global $pdo;
     $current_user_id=getCurrentUserId();
-    $sql = "INSERT INTO folders(name,user_id) VALUE(:folder_name ,:user_id);";
+    $sql = "INSERT INTO folders(name,user_id) VALUES(:folder_name ,:user_id);";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([":folder_name"=>$folder_name , ":user_id"=>$current_user_id]);
     return $stmt->rowCount();
