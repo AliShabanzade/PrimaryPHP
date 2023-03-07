@@ -142,10 +142,19 @@ input {
   }
 
 
-.main .nav .menu ul li a {
-  text-decoration: none;
-  color: #0c7388;
-}
+  .main .nav .menu ul li a {
+    text-decoration: none;
+    color: #0c7388;
+  } 
+
+  .main .nav .menu ul li.active a {
+    text-decoration: none;
+    color: #79BC46;
+  }
+
+
+
+
 
 i.fa.fa-trash-o {
   color: #d54f4f;
@@ -168,12 +177,20 @@ i.fa.fa-trash-o {
   border-radius: 4px;
   transition: 0.25s all;
 }
+
+
 .main .nav .menu ul li.active {
   color: #79BC46;
 }
+
+
+
+
+
 .main .nav .menu ul li:hover {
   background-color: #999;
 }
+
 .main .nav .menu ul li i {
   font-size: 1.4em;
   margin-right: 10px;
@@ -200,7 +217,8 @@ i.fa.fa-trash-o {
   font-weight: 400;
   padding: 0px;
   color: #AAA;
-  margin-top: -18px;
+  margin-top: -23px;
+  width: 50%;
 }
 .main .view .viewHeader .functions {
   float: right;
@@ -259,7 +277,7 @@ i.fa.fa-trash-o {
   border-top: 1px solid #AAA;
 }
 .main .view .content .list ul li.checked {
-  background-color: #F0F4F5;
+  background-color: #dedee2de;
 }
 .main .view .content .list ul li:last-child {
   border-bottom: 1px solid #AAA;
@@ -304,4 +322,23 @@ i.fa.fa-trash-o {
 .clear {
   clear: both;
 }
+
+span.created-at {
+  font-size: 12px;
+  margin-right: 12px;
+}
+
+a.fa.fa-trash-o {
+  color: #d54f4f;
+  font-size: large;
+  margin-right: 16px;
+  margin-top: 13px;
+}
+
+
+
+
+
+
+
 

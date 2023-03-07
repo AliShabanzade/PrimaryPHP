@@ -51,8 +51,12 @@ function getFolders(){
 
 
 // task function
-function removeTasks(){
-    return 1;
+function deleteTask($task_id){
+    global $pdo;
+    $sql = "DELETE  FROM tasks WHERE id = $task_id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+    return $stmt->rowCount();
 }
 // task function
 function addTasks(){
@@ -60,7 +64,20 @@ function addTasks(){
 }
 // task function
 function getTasks(){
-    return 1;
+   global $pdo;
+   $folderCondition = '';
+   
+   $folder = $_GET['folder_id'] ?? null;
+   if(isset($folder) && is_numeric($folder)){
+    $folderCondition = "and folder_id = $folder";
+   }
+   $current_user_id = getCurrentUserId();
+   $sql = "SELECT * FROM tasks WHERE  user_id = $current_user_id $folderCondition";
+   $stmt = $pdo->prepare($sql);
+   $stmt->execute();
+   $records = $stmt->fetchAll(PDO::FETCH_OBJ);
+   return $records;
+   
 }
 
 

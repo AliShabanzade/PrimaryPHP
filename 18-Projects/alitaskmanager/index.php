@@ -8,10 +8,16 @@ include 'bootstrap/init.php';
 
 
 if(isset($_GET['delete_folder']) && is_numeric($_GET['delete_folder'])){
-    $deletedCount = deleteFolder($_GET['delete_folder']);
-    // echo "$deletedCount folders successfully deleted!";
+    $folderDeletedCount = deleteFolder($_GET['delete_folder']);
+    // echo "$folderDeletedCount folders successfully deleted!";
     
 }  
+
+
+if(isset($_GET['delete_task']) && is_numeric($_GET['delete_task'])){
+    $taskDeletedCount = deleteTask($_GET['delete_task']);
+    // echo "$taskDeletedCount Task Successfully Deleted!";
+}
 
 
 
@@ -26,6 +32,9 @@ $folders = getFolders();
 
 
 $tasks = getTasks();
+
+// var_dump the db object returned
+// dd($tasks);
 
 
 
