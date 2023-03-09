@@ -26,11 +26,12 @@
         <div class="menu">
           <div class="title">Folders</div>
           <ul class="folder-list">
-          <li class="<?= isset($_GET['folder_id'])? '' : 'active' ?>"><i class="fa fa-folder-open"></i>All</li>
+          <li class="<?= isset($_GET['folder_id'])? '' : 'active' ?>">
+          <a href="<?php echo site_url() ?>"><i class="<?= isset($_GET['folder_id'])? 'fa fa-folder' : 'fa fa-folder-open'?>"></i>All</a></li>
          
             <?php foreach ($folders as $folder) : ?>
               <li class="<?= ($_GET['folder_id'] == $folder->id) ? 'active' : '' ?>">
-                <a href="?folder_id=<?= $folder->id ?>"><i class="fa fa-folder"></i><?= $folder->name ?></a>
+                <a href="<?= site_url("?folder_id= $folder->id ") ?>"><i class=" <?= ($_GET['folder_id'] == $folder->id)? 'fa fa-folder-open' :'fa fa-folder' ?> "></i><?= $folder->name ?></a>
                 <a href="?delete_folder=<?= $folder->id ?>"><i class="fa fa-trash-o" onclick="return confirm('Are You Sure To Delete Folder <?= $folder->name ?>?')"></i></a>
 
               </li>
@@ -53,7 +54,7 @@
           <div class="functions">
             <div class="button active">Add New Task</div>
             <div class="button">Completed</div>
-            <div class="button inverz"><i class="fa fa-trash-o"></i></div>
+           
           </div>
         </div>
         <di
@@ -66,7 +67,7 @@
                 
               <li class="<?= $task->is_done? "checked" : ""; ?>">
               <!-- ternary oprator for is_done task or not -->
-              <i class="<?php echo $task->is_done? "fa fa-check-square-o" : "fa fa-square-o" ?>"></i>
+              <i data-taskId="<?php echo  $task->id ?>" class=" isDone clickable  fa <?php echo $task->is_done? "fa fa-check-square-o" : "fa fa-square-o" ?>"></i>
               
               <span><?= $task->title ?></span>
 
@@ -95,6 +96,26 @@
   <script src="assets/js/script.js"></script>
 
   <script>
+  
+    $('.isDone').click(function(){
+       var tid = $(this).attr('data-taskId');
+         $.ajax ({
+             url : "process/ajaxHandler.php",
+             method : "post",
+             data : {
+                        action : "doneSwitch",
+                        taskId : tid
+                    },
+             success : function(response){
+                   location.reload();
+                }
+                
+             
+             
+         });
+    });
+
+    
     $(document).ready(function(){
       $('#addFolderBtn').click(function(e){
         var input = $('input#addFolderInput');
@@ -114,6 +135,28 @@
         });
       });
 
+      $('#taskNameInput').on('keypress' , function(e){
+         if(e.which == 13){
+           $.ajax({
+                 url : "process/ajaxHandler.php",
+                 method : "post",
+                 data : {
+                    action : "addTask",
+                    folderId : <?= $_GET['folder_id']  ?? 0 ?> ,
+                    taskTitle : $('#taskNameInput').val()
+                 },
+                 success : function(response){
+                  if(response == '1'){
+                    location.reload();
+                  }else{
+                    alert(response);
+                  }
+                 }
+           });
+         }
+      });
+      
+      $('#taskNameInput').focus();
     });
   </script>
 
