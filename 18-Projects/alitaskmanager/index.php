@@ -4,6 +4,11 @@ include 'bootstrap/init.php';
 // $v = new Verta();
 // var_dump($v);
 
+if(!isLoggedIn()){
+    //redirect to aut form
+    header("location:" . site_url('auth.php'));
+}
+
 
 
 
