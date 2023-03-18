@@ -223,3 +223,9 @@ button:focus {
 #image-overlay.two {
   background-color: #AE94DE;
 }
+
+.success {
+  background: #09ad1038 !important;
+  border: 2px solid #0c7c0c70 !important;
+  color: #068106 !important;
+}

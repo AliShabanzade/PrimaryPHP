@@ -1,13 +1,27 @@
 <?php
 include 'bootstrap/init.php';
+
 // use Hekmatinasser\Verta\Verta;
 // $v = new Verta();
 // var_dump($v);
 
-if(!isLoggedIn()){
-    //redirect to aut form
-    header("location:" . site_url('auth.php'));
+if(isset($_GET['logout'])){
+   logout();
+
 }
+
+if(!isLoggedIn()){
+    
+    //redirect to aut form
+    redirect(site_url('auth.php'));
+    
+    
+}
+
+$userForIndex = getLoggedUserInfo();
+
+
+
 
 
 

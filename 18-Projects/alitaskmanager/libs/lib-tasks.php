@@ -41,7 +41,9 @@ function addFolder($folder_name){
     $sql = "INSERT INTO folders(name,user_id) VALUES(:folder_name ,:user_id);";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([":folder_name"=>$folder_name , ":user_id"=>$current_user_id]);
-    return $stmt->rowCount();
+    $records=$stmt->fetchAll(PDO::FETCH_OBJ);
+    // return $stmt->rowCount();
+    return $records;
 
 
 }

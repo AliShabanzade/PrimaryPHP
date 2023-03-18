@@ -1,4 +1,5 @@
 <?php
+// include BASE_PATH . "bootstrap/init.php";
 include_once '../bootstrap/init.php';
 
 
@@ -31,12 +32,14 @@ switch($_POST['action']){
     
     break;
     case "addFolder":
-    
+        
         if(!isset($_POST['folderName'])  || strlen($_POST['folderName']) < 3){
           echo "نام فولدر باید بیشتر از دو حرف باشد";
           die();
         }else{
-            echo addFolder($_POST['folderName']);
+          $result=addFolder($_POST['folderName']);
+          echo json_encode($result);
+          
         }
         
     break;

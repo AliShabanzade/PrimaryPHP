@@ -2,7 +2,7 @@
 
 include "bootstrap/init.php";
 
-$home_url= site_url();
+$home_url= site_url('index.php');
 $login_url= site_url('auth.php');
 // check that request method is POST or not
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -44,12 +44,20 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             message("Error : an error in Registration occured!");
           }else{
             message("Registration is Successful . Welcome to alitaskmanager .<br>
-            <a href='$home_url'>Manage Your Tasks </a>" , 'success');
+            <a href='$login_url'>Please LogIn</a>" , 'success');
           }
     }else if($action == 'login'){
         
         $result = login($params['email'] , $params['password']);
-        message("Error : email or password is Incorrect!");
+        if(!$result){
+          message("Error : email or password is Incorrect! . <br><a href='$login_url'>Please Try Again</a>" );
+        } else{
+          redirect($home_url);
+          // message("You are Logged In.<br>
+          // <a href='$home_url'>Please Manage Your Tasks</a>" , 'success');
+         
+        }
+       
     
     }
     

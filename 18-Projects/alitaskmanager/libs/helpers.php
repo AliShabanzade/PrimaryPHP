@@ -47,3 +47,8 @@ function validate_username($username) {
     $pattern = '/^[a-zA-Z0-9_-]{3,20}$/';
     return preg_match($pattern, $username);
 }
+
+function redirect($url){
+    header("Location: $url");
+    // die();
+}
