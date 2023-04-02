@@ -60,20 +60,27 @@ document.getElementById('map').style.setProperty('height', window.innerHeight + 
 //   }, 2000);
 
 
-// map.on('dblclick' , function(event){
+map.on('dblclick' , function(event){
 // The log() method writes (logs) a message to the console.
 //    console.log(event);
 //   add a marker where duble click happened
 //   L.marker([event.latlng.lat , event.latlng.lng]).addTo(map); 
 //   alert(event.latlng.lat + " , " + event.latlng.lng);
-/*
-1 : add marker in ckicked position
-2 : open modal (form) for save the clicked location
-3 : fill the form and submit location data to server
-4 : save location in database (status : pending review)
-5 : review locations and verify if OK
-*/
-// });
+
+// 1 : add marker in clicked position Base on latlng parameter
+L.marker(event.latlng).addTo(map);
+// 2 : open modal (form) for save the clicked location
+$('.modal-overlay').fadeIn(250);
+$('#lat-display').val(event.latlng.lat);
+$('#lng-display').val(event.latlng.lng);
+$('#location-title').val('');
+$('#location-type').val(0);
+
+// 3 : fill the form and submit location data to server = done
+// 4 : save location in database (status : pending review) = done
+// 5 : review locations and verify if OK
+
+});
 
 
 var current_position, current_accuracy;
@@ -89,6 +96,9 @@ map.on('locationfound', function(e){
     .bindPopup("دقت تقریبی: " + radius + " متر").openPopup();
     current_accuracy = L.circle(e.latlng , radius).addTo(map);
 
+
+
+    
 });
 
 map.on('locationerror', function(e){
@@ -101,6 +111,38 @@ function locate() {
 }
 
 // setInterval(locate, 5000);
+
+
+
+$(document).ready(function() {
+
+    $('form#addLocationForm').submit(function(e){
+        //prevent form submiting
+       e.preventDefault();
+    //  this return current page informations  
+       var form = $(this);
+    //    The find() method returns descendant elements of the selected element
+       var resultTag = form.find('.ajax-result');
+       $.ajax({
+        // form.attr means form attribute
+         url: form.attr('action'),
+         method: form.attr('method'),
+        //  Output the result of serialized form values
+         data: form.serialize(),
+         success: function(response){
+            resultTag.html(response);
+         }
+       });
+
+    });
+
+
+    $('.modal-overlay .close').click(function() {
+        $('.modal-overlay').fadeOut();
+
+    });
+
+});
 
 
 
