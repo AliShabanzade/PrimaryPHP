@@ -48,6 +48,18 @@ function validate_username($username) {
     return preg_match($pattern, $username);
 }
 
+function validateLatLng($lat, $lng) {
+    $lat_pattern = '/^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?)$/';  //regex expression pattern for latitude
+    $lng_pattern = '/^[-+]?((1[0-7]|[1-9])?\d(\.\d+)?|180(\.0+)?)$/';  //regex expression pattern for longitude
+    
+    if (preg_match($lat_pattern, $lat) && preg_match($lng_pattern, $lng)) {
+      return true;  // valid latitude and longitude
+    } else {
+      return false;  // invalid latitude or longitude
+    }
+  }
+
+
 function redirect($url){
     header("Location: $url");
     // die();

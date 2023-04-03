@@ -10,6 +10,8 @@ $database_config = (object)[
 
 
 $admins = [
- "admin" => "admin",
- "ali-shabanzade" => "ali-shabanzade"
+ 'admin' => '$2y$10$Y9.d2uBflvag7OVfuJ9/vOkSgfCqhq1Pm1XnwbxYgTUiJr3oaMQoC',
+ 'ali' => '$2y$10$vy7x.FLKSOMZqm.siDnrwe43o0ybRau6Y2LLvxspnFFiKtLzHOpQG'
 ];
+
+// echo password_hash('ali' , PASSWORD_BCRYPT);
