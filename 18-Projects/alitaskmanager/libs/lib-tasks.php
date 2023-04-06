@@ -16,7 +16,7 @@ if(!defined('BASE_PATH')){
 function taskDoneSwitch($task_id){
     global $pdo;
     $current_user_id = getCurrentUserId();
-    $sql = "UPDATE tasks SET is_done = 1 - is_done WHERE user_id = :userID  and id = :taskID";
+    $sql = "UPDATE tasks SET is_done = 1-is_done WHERE user_id = :userID  and id = :taskID";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([':userID' => $current_user_id , ':taskID' => $task_id]);
     return $stmt->rowCount();

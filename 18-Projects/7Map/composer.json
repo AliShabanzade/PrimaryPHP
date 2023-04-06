@@ -1,0 +1,21 @@
+{
+    "name": "ali-sh/7map",
+    "description": "this is require library for 7map project",
+    "type": "library",
+    "require": {
+        "hekmatinasser/verta": "^2.1"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "AliSh\\7map\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ali Shabanzade",
+            "email": "shabanzade.ali@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}

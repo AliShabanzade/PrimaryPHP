@@ -16,6 +16,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 
  if(isLoggedIn()){
+   // null coalescing operator.If the get has a value, it will be sent, otherwise it will be sent empty 
+   $params = $_GET ?? [];
+   // It receives the values of the params and process the locations based on params
+   $locations = getLocations($params);
+      
     include "tpl/tpl-adm.php";
  }else{
     include "tpl/tpl-adm-form.php";
