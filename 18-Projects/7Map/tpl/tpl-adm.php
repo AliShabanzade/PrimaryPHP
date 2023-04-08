@@ -57,6 +57,11 @@ use Hekmatinasser\Verta\Verta;
         background: #0c8f10;
         color: #ffffff;
     }
+
+    .statusToggle.all {
+        background: #007bec;
+        color: #ffffff;
+    }
     .statusToggle:hover,button.preview:hover {
         opacity: 0.7;
     }
@@ -90,8 +95,9 @@ use Hekmatinasser\Verta\Verta;
         <h1>پنل مدیریت <span style="color:#007bec">سون مپ</span></h1>
         <div class="box">
             <a class="statusToggle" href="<?=BASE_URL?>" target="_blank">🏠</a>
-            <a class="statusToggle active" href="?verified=1">فعال</a>
-            <a class="statusToggle" href="?verified=0">غیرفعال</a>
+            <a class="statusToggle all" href="<?= BASE_URL ?>adm.php">همه</a>
+            <a class="statusToggle active" href="?verified=1">تائيد</a>
+            <a class="statusToggle" href="?verified=0">تائید نشده</a>
             <a class="statusToggle" href="?logout=1" style="float:left">خروج</a>
         </div>
         <div class="box">
@@ -114,10 +120,9 @@ use Hekmatinasser\Verta\Verta;
             <td class="text-center"><?= $loc->lng ?></td>
             <td>
             <!-- The data-* attribute is used to store custom data private to the page or application -->
-                <button class="statusToggle <?= $loc->verified ? 'active' : '' ?>" data-loc='111'>
-                <?= $loc->verified ? 'فعال' : 'غیر فعال' ?></button> 
+                <button class="statusToggle <?= $loc->verified ? 'active' : '' ?>" data-loc='<?= $loc->id ?>'>تائید</button> 
                 
-                <button class="preview" data-loc='111'>👁️‍🗨️</button> 
+                <button class="preview" data-loc='<?= $loc->id ?>'>👁️‍🗨️</button> 
             </td>
         </tr>
 <?php endforeach; ?>        
@@ -131,6 +136,8 @@ use Hekmatinasser\Verta\Verta;
         <div class="modal">
             <span class="close">x</span>
             <div class="modal-content">
+            <!-- <iframe> tag is an HTML element used to embed a separate HTML document into the current pag
+                 -->
                 <iframe id='mapWivdow' src="#" frameborder="0"></iframe>
             </div>
         </div>
@@ -142,11 +149,30 @@ use Hekmatinasser\Verta\Verta;
     <script>
     $(document).ready(function() {
         $('.preview').click(function() {
+            //If click on preview tag, it will ignore display none and open the modal
             $('.modal-overlay').fadeIn();
-            $('#mapWivdow').attr('src','<?=BASE_URL?>');
+            // The attr() method sets or returns attributes and values of the selected elements
+            // in this case set location id to data-loc attribute to print in URL
+            // $(this) is a keyword in jQuery that refers to the current element that's being acted
+            $('#mapWivdow').attr('src','<?=BASE_URL?>?loc=' + $(this).attr('data-loc'));
         });
         $('.modal-overlay .close').click(function() {
             $('.modal-overlay').fadeOut();
+        });
+    });
+
+
+    $('.statusToggle').click(function(){
+        const btn = $(this);
+
+        $.ajax({
+           url : '<?= BASE_URL . 'process/statusToggle.php' ?> ',
+           method : 'POST',
+           data : {loc: btn.attr('data-loc')},
+           success: function (response){
+            // Toggle between adding and removing the 'active' class name
+              btn.toggleClass('active');
+           }
         });
     });
     </script>
