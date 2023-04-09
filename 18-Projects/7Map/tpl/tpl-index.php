@@ -21,6 +21,7 @@
         <div class="mapContainer">
             <div id="map"></div>
         </div>
+        <img src="assets/img/current.png" class="currentLoc">
     </div>
 
     <div class="modal-overlay" style="display: none;">
@@ -74,6 +75,13 @@
 
             L.marker([<?= $location->lat ?>, <?= $location->lng ?>]).addTo(map).bindPopup("<?= $location->title ?>").openPopup();
         <?php endif; ?>
+
+       $(document).ready(function(){
+          $('img.currentLoc').click(function(){
+            locate()
+          });
+       });
+
     </script>
 
 </body>
