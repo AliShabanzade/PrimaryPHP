@@ -20,7 +20,11 @@ function getLocations($params = []){
     // The in_array() function searches an array for a specific value
     if(isset($params['verified']) && in_array($params['verified'] , ['0','1'])){
         $condition = "where verified = {$params['verified']}";
+    }else if(isset($params['keyword'])){
+        //this condition search evry caracther that come from POST['keyword']
+        $condition = "WHERE verified =1 and title like '%{$params['keyword']}%'";
     }
+    
     $sql = "SELECT * FROM locations $condition";
    
     $stmt = $pdo->prepare($sql);
