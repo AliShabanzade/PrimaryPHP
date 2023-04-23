@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Register Page</title>
     <!-- Because the content of this page is put into the auth.php file, the address must be from the auth.php file -->
-    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="<?= assets('css/styles.css'); ?>" >
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css" rel="stylesheet" />
@@ -30,7 +30,7 @@
 
                     <div class="card bg-glass">
                         <div class="card-body px-4 py-5 px-md-5">
-                            <form action="#" method="post">
+                            <form action="<?= site_url('auth.php?action=register') ?>" method="post">
                                 <!-- Name input -->
                                 <div class="form-outline mb-4">
                                     <input type="text" name="name" id="name" class="form-control" />
@@ -68,7 +68,7 @@
                                         <p class="text-start fs-5">If you sign up before:</p>
                                     </div>
                                     <div class="col-6  d-flex justify-content-end">
-                                        <a href="login.html" class="btn btn-success btn-small mb-4">
+                                        <a href="<?= site_url('auth.php?action=login') ?>" class="btn btn-success btn-small mb-4">
                                             login
                                         </a>
                                     </div>

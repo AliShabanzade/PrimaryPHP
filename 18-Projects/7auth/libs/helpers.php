@@ -13,7 +13,7 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQ
       return false;
 }
 
-function site_url($uri = ""){
+function site_url(string $uri = ''){
     return BASE_URL . $uri;
 }
 
@@ -64,4 +64,11 @@ function validateLatLng($lat, $lng) {
 function redirect($url){
     header("Location: $url");
     // die();
+}
+
+
+//for addressing assets file in project
+function assets(string $path): string {
+    return site_url("/assets/" . $path);
+
 }
