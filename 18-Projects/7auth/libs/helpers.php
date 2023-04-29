@@ -1,9 +1,7 @@
 <?php
 defined('BASE_PATH') OR die("Permision Denied");
 
-function getCurrentUrl(){
-    return 1;
-}
+
 
 function isAjaxRequest(){
    
@@ -61,8 +59,9 @@ function validateLatLng($lat, $lng) {
   }
 
 
-function redirect($url){
-    header("Location: $url");
+function redirect(string $target = BASE_URL): void 
+{
+    header("Location: " . $target);
     // die();
 }
 
@@ -71,4 +70,11 @@ function redirect($url){
 function assets(string $path): string {
     return site_url("/assets/" . $path);
 
+}
+
+
+function setErrorAndRedirect(string $message , string $target) : void{
+     $_SESSION['error']= $message;
+     redirect(site_url($target)); 
+    
 }

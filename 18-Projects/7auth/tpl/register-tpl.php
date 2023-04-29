@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Register Page</title>
     <!-- Because the content of this page is put into the auth.php file, the address must be from the auth.php file -->
-    <link rel="stylesheet" type="text/css" href="<?= assets('css/styles.css'); ?>" >
+    <link rel="stylesheet" type="text/css" href="<?= assets('css/styles.css'); ?>">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css" rel="stylesheet" />
@@ -22,6 +22,17 @@
                         7Learn Auth <br />
                         <span style="color: hsl(218, 81%, 75%)">Register Page</span>
                     </h1>
+
+                    <?php if(!empty($_SESSION['error'])) : ?>
+
+                        <h3 class="text-danger">Fix This Error And Try Again:</h3>
+                        <h4 class="mb-4 opacity-70 text-danger">
+                            <?= $_SESSION['error'] ?>
+                        </h4>
+                    <?php
+                        unset($_SESSION['error']); 
+                    endif;  ?>
+
                 </div>
 
                 <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
@@ -33,7 +44,7 @@
                             <form action="<?= site_url('auth.php?action=register') ?>" method="post">
                                 <!-- Name input -->
                                 <div class="form-outline mb-4">
-                                    <input type="text" name="name" id="name" class="form-control" />
+                                    <input type="text" name="name" id="name"  class="form-control"/>
                                     <label class="form-label" for="name">Name</label>
                                 </div>
 
